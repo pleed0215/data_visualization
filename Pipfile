@@ -10,6 +10,7 @@ pandas = "*"
 dash = "==1.14.0"
 jupyterlab = "*"
 jupyterthemes = "*"
+pypiwin32 = "*"
 
 [requires]
 python_version = "3.8"

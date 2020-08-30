@@ -89,6 +89,22 @@
   - concat()
     사용방법은 문서를 참고하자.
 
+### filtering??
+
+```python
+    df = pd.read_csv("data/time_series_confirmed.py")
+    df["Country/Region"] == "Afghanistan"
+```
+
+    - loc property
+        - loc[] is primarily label based, but may also be used with a boolean array.
+
+```python
+    df = df.loc[df["Country/Region"] == "Afghanistan"]
+```
+
+    - 이렇게 하면 아프가니스탄만 나옴.
+
 ### Plotly/Dash - python open source graphing library
 
 - pipenv install dash==0.14.0
