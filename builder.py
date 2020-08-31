@@ -13,7 +13,7 @@ def make_table(df):
                             )
                             for column_name in df.columns
                         ],
-                        className="grid grid-cols-4 h-20",
+                        className="grid grid-cols-4 h-20 border-b border-white",
                         style={"alignItems": "center"},
                     ),
                 ],
@@ -21,11 +21,9 @@ def make_table(df):
             html.Tbody(
                 children=[
                     html.Tr(
-                        children=[
-                            html.Td(column, className="border-b border-white w-1/4")
-                            for column in value
-                        ],
-                        className="grid grid-cols-4 h-20",
+                        children=[html.Td(column) for column in value],
+                        className="grid grid-cols-4 h-20 border-b border-white",
+                        style={"alignItems": "center"},
                     )
                     for value in df.values
                 ],

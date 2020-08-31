@@ -12,8 +12,6 @@ external_stylesheets = [
     "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
 ]
 
-print(countries_df.columns)
-
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 # assume you have a "long-form" data frame
@@ -31,6 +29,9 @@ app.layout = html.Div(
     className="min-h-screen text-center bg-black pt-10 text-white",
     style={"fontFamily": "'Open Sans', sans-serif"},
 )
+
+map_figure = px.scatter_geo(countries_df)
+map_figure.show()
 
 if __name__ == "__main__":
     app.run_server(debug=True)

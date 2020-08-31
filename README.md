@@ -141,6 +141,9 @@
     ```
     아름다운 수준이다 진짜... 저 길어질 코드가 어떻게 단 두줄만에...
 
+- plotly express
+  - bubble map
+
 ### Jupyter-Notebook
 
 - pipenv install jupyterlab
