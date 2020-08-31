@@ -4,7 +4,7 @@ import dash_html_components as html
 import plotly.express as px
 import pandas as pd
 
-from data import countries_df
+from data import countries_df, totalcase_df
 from builder import make_table
 
 external_stylesheets = [
@@ -31,7 +31,21 @@ map_figure = px.scatter_geo(
     locationmode="country names",
     color="Confirmed",
     template="plotly_dark",
+    projection="natural earth",
+    title="World Confirmed status",
+    color_continuous_scale=px.colors.sequential.Oryel,
     text="Deaths",
+)
+
+bar_fig = px.bar(
+    totalcase_df,
+    x="condition",
+    y="count",
+    template="plotly_dark",
+    color="condition",
+    title="Total cases",
+    hover_data={"count": ":,",},
+    labels={"count": "Counts", "condition": "Conditions",},
 )
 
 app.layout = html.Div(
@@ -41,15 +55,21 @@ app.layout = html.Div(
             style={"color": "white"},
             className="text-3xl hover:underline text-blue-300 font-bold",
         ),
-        html.Div(children=[make_table(countries_df)]),
-        map_figure,
+        html.Div(
+            children=[
+                html.Div(children=[make_table(countries_df),]),
+                html.Div(
+                    children=[dcc.Graph(id="global_bubble_map", figure=map_figure)]
+                ),
+                html.Div(children=[dcc.Graph(id="total_case_bar", figure=bar_fig)]),
+            ],
+            style={"display": "grid", "gridTemplateColumns": "repeat(2, 1fr)"},
+        ),
     ],
     className="min-h-screen text-center bg-black pt-10 text-white",
     style={"fontFamily": "'Open Sans', sans-serif"},
 )
 
-
-map_figure.show()
 
 if __name__ == "__main__":
     app.run_server(debug=True)

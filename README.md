@@ -142,12 +142,44 @@
     아름다운 수준이다 진짜... 저 길어질 코드가 어떻게 단 두줄만에...
 
 - plotly express
+
   - bubble map
+
     - scatter_geo
       - 어째 강의에 나온 레퍼런스를 잘 못 찾겠다.(찾았다)
       - [scatter_geo] (https://plotly.com/python-api-reference/generated/plotly.express.scatter_geo.html#plotly.express.scatter_geo)
       - 위의 내용과 소스 코드 참고를 하고,,
       - https://plotly.com/python/templates/
+
+    ```python
+    px.scatter_geo(
+        countries_df,
+        size="Confirmed",
+        size_max=50,
+        hover_data={
+            "Confirmed": ":,2f",
+            "Deaths": ":,2f",
+            "Recovered": ":,2f",
+            "Country_Region": False,
+        },
+        hover_name="Country_Region",
+        locations="Country_Region",
+        locationmode="country names",
+        color="Confirmed",
+        template="plotly_dark",
+        text="Deaths",
+    )
+    ```
+
+    - projection (str) – One of 'equirectangular', 'mercator', 'orthographic', 'natural earth', 'kavrayskiy7', 'miller', 'robinson', 'eckert4', 'azimuthal equal area', 'azimuthal equidistant', 'conic equal area', 'conic conformal', 'conic equidistant', 'gnomonic', 'stereographic', 'mollweide', 'hammer', 'transverse mercator', 'albers usa', 'winkel tripel', 'aitoff', or 'sinusoidal'`Default depends on `scope.
+
+    - color_continuous_scale (list of str) – Strings should define valid CSS-colors This list is used to build a continuous color scale when the column denoted by color contains numeric data. Various useful color scales are available in the plotly.express.colors submodules, specifically plotly.express.colors.sequential, plotly.express.colors.diverging and plotly.express.colors.cyclical.
+
+    - x axis, y axis 이름을 바꾸고 싶다면...
+      - fig.update_layout
+      - [layout 관련 내용을 참조](https://plotly.com/python/reference/layout/)
+      - 이름 바꾸는 것 뿐만 아니라, figure 전반적인 내용을 수정할 수 있음(margin)
+      - update_layout 이외에 figure를 만들 때 labels 속성을 넣어도 된다.
 
 ### Jupyter-Notebook
 
