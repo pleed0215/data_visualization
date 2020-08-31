@@ -105,11 +105,47 @@
 
     - 이렇게 하면 아프가니스탄만 나옴.
 
+### sorting?
+
+- sort_values(by, ascending, ..)
+
 ### Plotly/Dash - python open source graphing library
 
 - pipenv install dash==0.14.0
+
+- 기본 프레임은 튜토리얼에서 따오자.
+- 핵심 -> layout
+  - <code>app.layout ( children = [ ...])</code>의 형식
+  - style argument로 css style을 줄 수 있다. css naming 형식은 js에서 사용하는 camel case.
+    ```python
+        html.H1("Corona dashboard", style={"textAlign": "center"})
+    ```
+- table을 이용하네..
+
+  - table column header를 따려면 df.columns를 하면 된다.
+  - python 문법에서 정말 중요한 내용을 여기서 말해준다.
+
+  ```python
+    html.Th(column_name) for column_name in countries_df.columns
+  ```
+
+  - values에 접근을 하려면, df.values를 하면 된다.
+    - python이 정말 강력하고 쉬운 문법을 가지고 있다.. 그래서 많이들 사용을 하는 모양이다.
+    ```python
+        html.Tbody(
+            children=[
+                html.Tr(children=[html.Td(column) for column in value])
+                for value in countries_df.values
+            ]
+        ),
+    ```
+    아름다운 수준이다 진짜... 저 길어질 코드가 어떻게 단 두줄만에...
 
 ### Jupyter-Notebook
 
 - pipenv install jupyterlab
 - Try in Your Browser. No Installation Needed.
+
+```
+
+```
