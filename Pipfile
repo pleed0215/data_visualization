@@ -7,10 +7,12 @@ verify_ssl = true
 
 [packages]
 pandas = "*"
-dash = "==1.14.0"
 jupyterlab = "*"
 jupyterthemes = "*"
 pypiwin32 = "*"
+pexpect = "*"
+appnope = "*"
+dash = "*"
 
 [requires]
 python_version = "3.8"
