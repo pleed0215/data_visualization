@@ -143,6 +143,9 @@
 
 - plotly express
   - bubble map
+    - scatter_geo
+      - 어째 강의에 나온 레퍼런스를 잘 못 찾겠다.(찾았다)
+      - [scatter_geo] (https://plotly.com/python-api-reference/generated/plotly.express.scatter_geo.html#plotly.express.scatter_geo)
 
 ### Jupyter-Notebook
 
