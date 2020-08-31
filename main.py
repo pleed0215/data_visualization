@@ -52,18 +52,19 @@ app.layout = html.Div(
     children=[
         html.H1(
             children="Corona Dashboard",
-            style={"color": "white"},
+            style={"color": "white", "marginBottom":"30px"},
             className="text-3xl hover:underline text-blue-300 font-bold",
         ),
         html.Div(
             children=[
-                html.Div(children=[make_table(countries_df),]),
                 html.Div(
-                    children=[dcc.Graph(id="global_bubble_map", figure=map_figure)]
+                    children=[dcc.Graph(id="global_bubble_map", figure=map_figure)],
+                    style={"gridColumn":"span 3", "height":"100%"}
                 ),
-                html.Div(children=[dcc.Graph(id="total_case_bar", figure=bar_fig)]),
+                html.Div(children=[make_table(countries_df),]),
+                html.Div(children=[dcc.Graph(id="total_case_bar", figure=bar_fig)], style={"gridColumn":"span 1"}),
             ],
-            style={"display": "grid", "gridTemplateColumns": "repeat(2, 1fr)"},
+            style={"display": "grid", "gridTemplateColumns": "repeat(4, 1fr)", "gridGap": "50px"},
         ),
     ],
     className="min-h-screen text-center bg-black pt-10 text-white",

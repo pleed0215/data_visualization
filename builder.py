@@ -10,6 +10,7 @@ def make_table(df):
                         children=[
                             html.Th(
                                 column_name.replace("_", " "),
+                                className="text-xs"
                             )
                             for column_name in df.columns
                         ],
@@ -27,9 +28,9 @@ def make_table(df):
                     )
                     for value in df.values
                 ],
-                style={"height": "50vh"},
+                style={"height": "100%"},
                 className="block overflow-y-auto",
             ),
         ],
-        style={"height": "50vh"},
+        style={"height":"100%"}        
     )
