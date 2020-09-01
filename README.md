@@ -181,6 +181,29 @@
       - 이름 바꾸는 것 뿐만 아니라, figure 전반적인 내용을 수정할 수 있음(margin)
       - update_layout 이외에 figure를 만들 때 labels 속성을 넣어도 된다.
 
+### plotly graph_objects
+
+    - https://plotly.com/python/graph-objects/
+    - jupyter note도 참고.
+    - 공식 문서에는 좋은 예제들이 많으니 참고하자.
+
+### Core component
+
+- interactive하게 만들어 주는 요소.
+
+- @callback decorator
+
+```python
+    @app.callback(
+        Output(component_id="hello-output", component_property="children"),
+        [
+            Input("hello-input", "value"))
+        ]
+    )
+    def update_hello(value):
+        pass
+```
+
 ### Jupyter-Notebook
 
 - pipenv install jupyterlab
