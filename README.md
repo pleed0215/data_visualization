@@ -212,3 +212,10 @@
 ```
 
 ```
+
+## Heroku deploying
+
+- 필요한 것
+  - requirements.txt
+  - Proctype
+  - install gunicorn

@@ -11,6 +11,7 @@ dash = "==1.14.0"
 jupyterlab = "*"
 jupyterthemes = "*"
 pipenv-to-requirements = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
