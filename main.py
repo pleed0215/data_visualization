@@ -14,6 +14,7 @@ external_stylesheets = [
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
@@ -153,6 +154,3 @@ def on_select(value):
     fig.update_xaxes(rangeslider_visible=True)
     return dcc.Graph(figure=fig)
 
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
